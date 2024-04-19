@@ -44,7 +44,6 @@ int main() {
 	mybin2.read((char*)&a1, 4);
 	mybin2.read((char*)c1, sizeof(int) * nn1);
 	mybin2.read((char*)b1, sizeof(float) * nn2);
-	mybin2.close();
 
 	cout << a1 << " ";
 	for (int j = 0; j < nn1; j++) {
@@ -53,6 +52,8 @@ int main() {
 	for (int k = 0; k < nn2; k++) {
 		cout << b1[k] << " ";
 	}
+	cout << "File size is: " << mybin2.tellg() << " bytes.\n";
+	mybin2.close();
 }
 
 void multiple(int *b, int n1) {

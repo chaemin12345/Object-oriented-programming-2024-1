@@ -20,9 +20,9 @@ int main() {
 			i--;
 		}
 	}
-	for (float i = -0.5; i <= 0.5; i += 0.5) {
-		int d = i * 2 + 1;
-		b[d] = square(i);
+	int abc=0;
+	for (float i = -0.5; i <= 0.5; i += 0.5,abc++) {
+		b[abc] = square(i);
 	}
 
 	ofstream mybin;
@@ -40,7 +40,6 @@ int main() {
 	mybin2.read((char*)&a1, 4);
 	mybin2.read((char*)c1, sizeof(int) * 5);
 	mybin2.read((char*)b1, sizeof(float) * 3);
-	mybin2.close();
 
 	cout << a1 << " ";
 	for (int j = 0; j < 5; j++) {
@@ -49,6 +48,8 @@ int main() {
 	for (int k = 0; k < 3; k++) {
 		cout << b1[k] << " ";
 	}
+	cout << "File size is: " << mybin2.tellg() << " bytes.\n";
+	mybin2.close();
 }
 
 int multiple(int b) {
